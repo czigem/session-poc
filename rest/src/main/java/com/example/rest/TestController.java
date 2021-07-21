@@ -14,7 +14,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping("/api")
 public class TestController {
-    @GetMapping(value = "test", produces = { APPLICATION_JSON_VALUE })
+    @GetMapping(value = "test")
     String test(HttpServletRequest request) {
         Cookie sessionCookie = WebUtils.getCookie(request, "SESSION");
         return "Session: " + (sessionCookie == null ? "" : sessionCookie.getValue());

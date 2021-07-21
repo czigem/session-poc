@@ -29,7 +29,6 @@ public class SessionFilter implements GatewayFilter, Ordered {
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         Map<String, Object> sessionMap = new HashMap<>();
         sessionMap.put("param", "Hi, I am the value from cloud gateway");
-
         return exchange.getSession()
                        .doOnNext(webSession -> webSession.getAttributes()
                                                          .putAll(sessionMap))
