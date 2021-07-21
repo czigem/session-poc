@@ -1,0 +1,24 @@
+server:
+  port: 7000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: rest
+          uri: http://localhost:7001
+          predicates:
+            - Path=/api/**
+          filters:
+            - SaveSession
+            - SessionFilterFactory
+#            - SessionFlushFactory
+  session:
+    store-type: redis             # Defines where the session is stored JVM or redis
+    redis:
+      flush-mode: immediate      #Tells spring to flush the session data immediately into redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+
