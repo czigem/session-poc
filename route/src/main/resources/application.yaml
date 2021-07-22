@@ -1,18 +1,18 @@
 server:
-  port: 7000
+  port: 8000
 
 spring:
   cloud:
     gateway:
       routes:
         - id: rest
-          uri: http://localhost:7001
+          uri: http://localhost:8001
           predicates:
             - Path=/api/**
           filters:
-            - SaveSession
-            - SessionFilterFactory
-#            - SessionFlushFactory
+            - CreateSession
+#            - SaveSession
+            - ForceSaveSession
   session:
     store-type: redis             # Defines where the session is stored JVM or redis
     redis:
