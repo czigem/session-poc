@@ -1,4 +1,4 @@
-###[Track issue](https://github.com/spring-cloud/spring-cloud-gateway/issues/2304)
+[Track issue](https://github.com/spring-cloud/spring-cloud-gateway/issues/2304)
 
 **Describe the bug**
 It seems to me that in spring-cloud-gateway with redis cache doesn't work with SaveSession GateWay Filter as it was intended.
