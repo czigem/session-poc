@@ -25,8 +25,7 @@ public class ForceSaveSessionGatewayFilterFactory extends AbstractGatewayFilterF
                                            .header("Cookie", "SESSION=" + session.getId())
                                            .build();
                                })
-                               .map(WebSession::save)
-                               .doOnNext(toSave -> toSave.subscribe())
+                               .flatMap(WebSession::save)
                                .then(chain.filter(exchange));
             }
         }, 100);

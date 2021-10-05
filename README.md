@@ -33,7 +33,7 @@ spring:
     gateway:
       routes:
         - id: rest
-          uri: http://localhost:7001
+          uri: http://localhost:8001
           predicates:
             - Path=/api/**
           filters:
@@ -48,6 +48,6 @@ I have created two service component, **route** and **rest**.
 
 The two service component can be found at [GitHub](https://github.com/czigem/session-poc) and you need a local redis listening on 6379 (I have used [DockerHub](https://hub.docker.com/_/redis).) After you build and start them you can try with the following command.
 ```
-curl --location --request GET 'http://localhost:7000/api/test'
+curl --location --request GET 'http://localhost:8000/api/test'
 ```
 You will see that the response doesn't contain the SESSION information.
